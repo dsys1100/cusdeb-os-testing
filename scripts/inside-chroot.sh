@@ -54,7 +54,7 @@ ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Create the login user that will own the desktop session and home directory.
 useradd -m -s /bin/bash cusdeb
-addduser cusdeb sudo
+usermod -aG sudo cusdeb
 
 # Prepare user-owned desktop and config directories before the first GUI start.
 # Pre-create .config as cusdeb because cusdeb-session later creates
