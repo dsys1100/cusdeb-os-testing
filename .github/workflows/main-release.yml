@@ -1,6 +1,7 @@
 name: Main build and release
 
 on:
+  workflow_dispatch: {}
   push:
     branches:
       - main
@@ -43,7 +44,8 @@ jobs:
 
       - name: Build disk image
         env:
-          ROOT_PASSWORD: root
+          ROOT_PASSWORD: 000
+          USER_PASSWORD: 000
         run: ./run-docker-build.sh
 
       - name: Verify build output exists

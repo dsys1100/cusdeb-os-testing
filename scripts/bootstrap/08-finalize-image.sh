@@ -8,6 +8,9 @@ stage_08_finalize_image() {
     chroot "$MNT" passwd -l root
   fi
 
+  # Configure user password only after the guest filesystem is fully provisioned.
+  printf '%s\n' "cusdeb:$USER_PASSWORD" | chroot "$MNT" chpasswd
+
   # Optionally hand the output artifact back to the invoking host user so Docker
   # builds do not leave a root-owned image behind.
   if [ -n "$HOST_UID" ] && [ -n "$HOST_GID" ]; then

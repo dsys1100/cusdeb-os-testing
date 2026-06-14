@@ -19,7 +19,7 @@ wget -NP /etc/apt/sources.list.d/ "$winehq_source_url"
 apt-get update
 # Install the GUI/session stack, Wine, LightDM, and the tools needed to run
 # desktop apps directly after boot without a heavyweight desktop environment.
-apt-get install -y --install-recommends winehq-stable openbox lxpanel lightdm lightdm-gtk-greeter xorg spice-vdagent pcmanfm dbus-x11 gtk2-engines-pixbuf x11-xserver-utils xterm
+apt-get install -y --install-recommends winehq-stable openbox lxpanel lightdm lightdm-gtk-greeter xorg spice-vdagent pcmanfm dbus-x11 gtk2-engines-pixbuf x11-xserver-utils xterm sudo
 
 # Register PE binaries with binfmt so Windows executables can be launched more
 # naturally inside the image instead of always invoking wine manually.
@@ -54,6 +54,7 @@ ln -s /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
 
 # Create the login user that will own the desktop session and home directory.
 useradd -m -s /bin/bash cusdeb
+addduser cusdeb sudo
 
 # Prepare user-owned desktop and config directories before the first GUI start.
 # Pre-create .config as cusdeb because cusdeb-session later creates

@@ -23,6 +23,7 @@ docker run --rm \
   -e MIRROR="${MIRROR-https://deb.debian.org/debian}" \
   -e VM_HOSTNAME="${VM_HOSTNAME-cusdeb-os}" \
   -e ROOT_PASSWORD="${ROOT_PASSWORD-}" \
+  -e USER_PASSWORD="${USER_PASSWORD-}" \
   -e HOST_UID="$(id -u)" \
   -e HOST_GID="$(id -g)" \
   "$IMAGE_TAG"
