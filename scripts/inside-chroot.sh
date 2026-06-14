@@ -519,3 +519,5 @@ menuentry 'CusDeb OS' {
     initrd /boot/$INITRD_PATH
 }
 GRUBEOF
+
+apt clean

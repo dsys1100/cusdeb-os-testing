@@ -44,8 +44,8 @@ jobs:
 
       - name: Build disk image
         env:
-          ROOT_PASSWORD: 000
-          USER_PASSWORD: 000
+          ROOT_PASSWORD: 0000
+          USER_PASSWORD: 0000
         run: ./run-docker-build.sh
 
       - name: Verify build output exists
